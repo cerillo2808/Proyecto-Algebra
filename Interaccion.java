@@ -2,7 +2,7 @@ import java.util.Scanner;
 Scanner in = new Scanner (System.in);
 
 
-class Interaccion{
+public class Interaccion{
     public void run(){
         System.out.println("Bienvenido al programa para calcular cónicas");
         //buen lugar para poner los integrantes;
