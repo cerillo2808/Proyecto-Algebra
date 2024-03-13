@@ -1,8 +1,11 @@
-import java.util.Scanner;
-Scanner in = new Scanner (System.in);
+package Codigo;
 
+import java.util.Scanner;
 
 public class Interaccion{
+
+    Scanner in = new Scanner (System.in);
+
     public void run(){
         System.out.println("Bienvenido al programa para calcular cónicas");
         //buen lugar para poner los integrantes;
