@@ -3,3 +3,4 @@ Programa para calcular los vectores propios, valores propios, y mostrar la gráf
 
 Integrantes:
 -Liqing Yosery Zheng Lu / C38680
+-Macey Bourrouett Obando / C11183

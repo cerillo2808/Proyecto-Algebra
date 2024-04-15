@@ -46,6 +46,8 @@ public class Interaccion{
 
         else if (conica == 3){
             System.out.println("hiperbola");
+            Hiperbola hiperbola = new Hiperbola();
+            hiperbola.calcularHiperbola();
         }
     }
 
