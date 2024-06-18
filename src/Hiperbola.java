@@ -1,6 +1,11 @@
 import java.util.Scanner;
 import java.text.DecimalFormat;
 import java.lang.Math;
+import org.apache.commons.math4.legacy.linear.Array2DRowRealMatrix;
+import org.apache.commons.math4.legacy.linear.EigenDecomposition;
+import org.apache.commons.math4.legacy.linear.RealMatrix;
+import org.apache.commons.math4.legacy.linear.MatrixUtils;
+import org.apache.commons.math4.legacy.linear.LUDecomposition;
 
 public class Hiperbola {
     Scanner in = new Scanner (System.in);
@@ -142,5 +147,17 @@ public class Hiperbola {
                 System.out.print("Ecuación Canónica: ( (y-" +formatDouble(y)+ ")² / " +formatDouble(a)+ "² - ( (x-" +formatDouble(x)+ ")² / " +formatDouble(b)+ "²) = 1 \n");
             }
         }
+    }
+
+    public void matrizAsociadaFormaCuadratica(double A, double B, double C){
+        //TO-DO
+    }
+
+    public void valoresPropios(){
+        //TO-DO
+    }
+
+    public void vectoresPropios(){
+        //TO-DO
     }
 }
