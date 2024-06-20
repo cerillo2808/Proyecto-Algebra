@@ -1,6 +1,8 @@
 import java.util.Scanner;
 import java.text.DecimalFormat;
 import java.lang.Math;
+import static java.lang.System.exit;
+import javax.swing.*;
 import org.apache.commons.math4.legacy.linear.*;
 
 public class Hiperbola {
@@ -96,6 +98,8 @@ public class Hiperbola {
         calcularEcuacionCuadratica(dir,a,b,x,y);
         calcularEcuacionCanonica(dir,a,c,b,x,y);
         matrizAsociadaFormaCuadratica(coeficienteXalCuadrado, coeficienteYalCuadrado, coeficienteX, coeficienteY, constante);
+        Painter s= new Painter();
+        s.paintHyperbola((int)a,(int)b);
     }
 
     public void calcularEcuacionCuadratica(int dir, double a, double b, double x, double y) {
