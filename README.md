@@ -5,3 +5,4 @@ Integrantes:
 - Liqing Yosery Zheng Lu - C38680
 - Macey Bourrouett Obando - C11183
 - Justin Steve Burgos Muñoz - C31361
+- Jerson Fernando Bonilla Fernández - C31225
