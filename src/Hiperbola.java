@@ -1,11 +1,19 @@
 import java.util.Scanner;
 import java.text.DecimalFormat;
 import java.lang.Math;
+import org.apache.commons.math4.legacy.linear.*;
 
 public class Hiperbola {
     Scanner in = new Scanner (System.in);
 
     public Hiperbola() {}
+
+    //atributos
+    double coeficienteXalCuadrado;
+    double coeficienteYalCuadrado;
+    double coeficienteX;
+    double coeficienteY;
+    double constante;
 
     private String formatDouble(double num) {
         DecimalFormat df = new DecimalFormat("0.##");
@@ -87,6 +95,7 @@ public class Hiperbola {
         System.out.print("Distancia del centro al foco : " +a+ "\n");
         calcularEcuacionCuadratica(dir,a,b,x,y);
         calcularEcuacionCanonica(dir,a,c,b,x,y);
+        matrizAsociadaFormaCuadratica(coeficienteXalCuadrado, coeficienteYalCuadrado, coeficienteX, coeficienteY, constante);
     }
 
     public void calcularEcuacionCuadratica(int dir, double a, double b, double x, double y) {
@@ -110,16 +119,36 @@ public class Hiperbola {
             //eje en el origen
             if (x==0 && y==0) {
                 System.out.print("Ecuación Cuadrática: " +formatDouble(bP)+ "x² - " +formatDouble(aP)+ "y² - " +formatDouble(mult)+ " = 0 \n");
+                //actualizar los atributos
+                coeficienteXalCuadrado = bP;
+                coeficienteYalCuadrado = aP*-1;
+                constante = mult*-1;
             }else {
                 System.out.print("Ecuación Cuadrática: " +formatDouble(bP)+ "x² - " +formatDouble(aP)+ "y² - " +formatDouble(auxCHorizontal)+ "x + " +formatDouble(auxDHorixontal)+ "y + " + formatDouble(auxEHorizontal)+ " = 0 \n");
+                //actualizar los atributos
+                coeficienteXalCuadrado = bP;
+                coeficienteYalCuadrado = aP*-1;
+                coeficienteX = auxCHorizontal*-1;
+                coeficienteY = auxDHorixontal;
+                constante = auxEHorizontal;
             }
             //Hiperbola vertical
         }else {
             //eje en el origen
             if (x==0 && y==0) {
                 System.out.print("Ecuación Cuadrática: -" +formatDouble(aP)+ "x² + " +formatDouble(bP)+ "y² - " +formatDouble(mult)+ " = 0 \n");
+                //actualizar atributos
+                coeficienteXalCuadrado = aP*-1;
+                coeficienteYalCuadrado = bP;
+                constante = mult*-1;
             }else {
                 System.out.print("Ecuación Cuadrática: -" +formatDouble(aP)+ "x² + " +formatDouble(bP)+ "y² + " +formatDouble(auxCVertical)+ "x - " +formatDouble(auxDVertical)+ "y + " + formatDouble(auxEVertical)+ " = 0 \n");
+                //actualizar atributos
+                coeficienteXalCuadrado = aP*-1;
+                coeficienteYalCuadrado = bP;
+                coeficienteX = auxCVertical;
+                coeficienteY = auxDVertical*-1;
+                constante = auxEVertical;
             }
         }
     }
@@ -142,5 +171,25 @@ public class Hiperbola {
                 System.out.print("Ecuación Canónica: ( (y-" +formatDouble(y)+ ")² / " +formatDouble(a)+ "² - ( (x-" +formatDouble(x)+ ")² / " +formatDouble(b)+ "²) = 1 \n");
             }
         }
+    }
+
+    public void matrizAsociadaFormaCuadratica(double coeficienteXalCuadrado, double coeficienteYalCuadrado, double coeficienteX, double coeficienteY, double constante){
+        double[][] matrizDouble = {{coeficienteXalCuadrado,0,coeficienteX/2},{0,coeficienteYalCuadrado,coeficienteY/2},{coeficienteX/2,coeficienteY/2,constante}};
+        RealMatrix matrizAsociada = new Array2DRowRealMatrix(matrizDouble);
+        System.out.println("Matriz asociada a la Fórmula Cuadrática: ");
+        for (int i = 0; i < matrizAsociada.getRowDimension(); i++) {
+            for (int j = 0; j < matrizAsociada.getColumnDimension(); j++) {
+                System.out.print("   " + matrizAsociada.getEntry(i, j));
+            }
+            System.out.println();
+        }
+    }
+
+    public void valoresPropios(){
+        //TO-DO
+    }
+
+    public void vectoresPropios(){
+        //TO-DO
     }
 }
