@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+ 
 public class InterfazHiperbola {
     public static void main(String[] args) {
         // Llamar a la función que crea y muestra la interfaz de usuario
