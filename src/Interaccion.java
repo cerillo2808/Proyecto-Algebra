@@ -31,7 +31,7 @@ public class Interaccion{
     }
 
     public String preguntarRepeticion(){
-        System.out.println("¿Desea calcular otra cónica?\n [S] Sí \n [N] No");
+        System.out.println("\n¿Desea calcular otra cónica?\n [S] Sí \n [N] No");
         String respuesta = in.nextLine().toUpperCase().trim();
         if (respuesta.equals("N") || respuesta.equals("S")){
             return (respuesta);
