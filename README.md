@@ -22,4 +22,4 @@ Integrantes:
 
 ## Consideraciones Técnicas
 - Las ecuaciones de la hipérbola están basadas en:
-![imagen]((https://blogs.ugto.mx/rea/wp-content/uploads/sites/71/2023/11/Hiperbola-1.png))
+![imagen](https://blogs.ugto.mx/rea/wp-content/uploads/sites/71/2023/11/Hiperbola-1.png)
