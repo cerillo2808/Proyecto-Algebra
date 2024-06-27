@@ -87,8 +87,12 @@ public class Hiperbola {
         System.out.print("Datos de la Hipérbola: \n");
         if (dir == 1){
             System.out.print("Hiperbola Horizontal\n");
+            Painter s= new Painter();
+            s.paintHyperbola((int)a,(int)b);
         }else {
             System.out.print("Hiperbola Vertical\n");
+            Painter2 s2= new Painter2();
+            s2.paintHyperbola((int)b,(int)a);
         }
         System.out.print("Coordenadas del centro (" +x+ "," +y+ ")\n");
         System.out.print("Distancia del centro a un vértice : " +c+ "\n");
@@ -98,8 +102,6 @@ public class Hiperbola {
         RealMatrix matriz = matrizAsociadaFormaCuadratica(coeficienteXalCuadrado, coeficienteYalCuadrado, coeficienteX, coeficienteY, constante);
         EigenDecomposition matrizDiagonal = valoresPropios(matriz);
         vectoresPropios(matrizDiagonal);
-        Painter s= new Painter();
-        s.paintHyperbola((int)a,(int)b);
     }
 
     public void calcularEcuacionCuadratica(int dir, double a, double b, double x, double y) {
