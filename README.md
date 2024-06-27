@@ -15,10 +15,10 @@ Integrantes:
 5. Ir a `src` -> `Main.java`
 6. Darle al botón de `run java`
 7. Es posible que la IDE le pida seleccionar un intérprete/compilador. En ese caso:
-   7.1 Ir a `Extensions`
-   7.2 Buscar `Extension Pack for Java`
-   7.3 Instalar el paquete encontrado del paso 7.2
-   7.4 A la hora de seguir paso 6, seleccione el paquete instalado en el paso 7.3
+   - 7.1 Ir a `Extensions`
+   - 7.2 Buscar `Extension Pack for Java`
+   - 7.3 Instalar el paquete encontrado del paso 7.2
+   - 7.4 A la hora de seguir paso 6, seleccione el paquete instalado en el paso 7.3
 
 ## Consideraciones Técnicas
 - Las ecuaciones de la hipérbola están basadas en:
