@@ -21,5 +21,4 @@ Integrantes:
    - 7.4 A la hora de seguir paso 6, seleccione el paquete instalado en el paso 7.3
 
 ## Consideraciones Técnicas
-- Las ecuaciones de la hipérbola están basadas en:
-![imagen](https://blogs.ugto.mx/rea/wp-content/uploads/sites/71/2023/11/Hiperbola-1.png)
+- Los datos mostrados de la matriz asociada, los valores y vectores propios están redondeados a un decimal.
