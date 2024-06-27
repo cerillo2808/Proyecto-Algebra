@@ -1,9 +1,7 @@
 import java.util.Scanner;
 import java.text.DecimalFormat;
 import java.lang.Math;
-import static java.lang.System.exit;
-import javax.swing.*;
-import org.apache.commons.math4.legacy.linear.*;
+import org.apache.commons.math3.linear.*;
 
 public class Hiperbola {
     Scanner in = new Scanner (System.in);
@@ -97,7 +95,9 @@ public class Hiperbola {
         System.out.print("Distancia del centro al foco : " +a+ "\n");
         calcularEcuacionCuadratica(dir,a,b,x,y);
         calcularEcuacionCanonica(dir,a,c,b,x,y);
-        matrizAsociadaFormaCuadratica(coeficienteXalCuadrado, coeficienteYalCuadrado, coeficienteX, coeficienteY, constante);
+        RealMatrix matriz = matrizAsociadaFormaCuadratica(coeficienteXalCuadrado, coeficienteYalCuadrado, coeficienteX, coeficienteY, constante);
+        EigenDecomposition matrizDiagonal = valoresPropios(matriz);
+        vectoresPropios(matrizDiagonal);
         Painter s= new Painter();
         s.paintHyperbola((int)a,(int)b);
     }
@@ -177,23 +177,46 @@ public class Hiperbola {
         }
     }
 
-    public void matrizAsociadaFormaCuadratica(double coeficienteXalCuadrado, double coeficienteYalCuadrado, double coeficienteX, double coeficienteY, double constante){
+    public RealMatrix matrizAsociadaFormaCuadratica(double coeficienteXalCuadrado, double coeficienteYalCuadrado, double coeficienteX, double coeficienteY, double constante){
         double[][] matrizDouble = {{coeficienteXalCuadrado,0,coeficienteX/2},{0,coeficienteYalCuadrado,coeficienteY/2},{coeficienteX/2,coeficienteY/2,constante}};
         RealMatrix matrizAsociada = new Array2DRowRealMatrix(matrizDouble);
         System.out.println("Matriz asociada a la Fórmula Cuadrática: ");
         for (int i = 0; i < matrizAsociada.getRowDimension(); i++) {
             for (int j = 0; j < matrizAsociada.getColumnDimension(); j++) {
-                System.out.print("   " + matrizAsociada.getEntry(i, j));
+                System.out.printf("%.1f   ", matrizAsociada.getEntry(i, j));
+                //se redondea a un decimal
             }
             System.out.println();
         }
+        return matrizAsociada;
     }
 
-    public void valoresPropios(){
-        //TO-DO
+    public EigenDecomposition valoresPropios(RealMatrix matriz){
+        EigenDecomposition matrizDiagonal = new EigenDecomposition(matriz);
+        double[] valoresPropios = matrizDiagonal.getRealEigenvalues();
+
+        for (int i = 0; i< valoresPropios.length; i++){
+            System.out.print("\nValor propio #" + (i+1) + ": ");
+            System.out.printf("%.1f", valoresPropios[i]);
+        }
+
+        return matrizDiagonal;
+        
     }
 
-    public void vectoresPropios(){
-        //TO-DO
+    public void vectoresPropios(EigenDecomposition matrizDiagonal){
+        RealMatrix matrizC = matrizDiagonal.getV();
+
+        for (int i = 0; i < matrizC.getColumnDimension(); i++) {
+
+            
+            System.out.print("\nVector propio #" + (i+1) + " (   ");
+            for (int j = 0; j < matrizC.getRowDimension(); j++) {
+                System.out.printf("%.1f    ", matrizC.getEntry(i, j));
+            }
+            
+            
+            System.out.print(")");
+        }
     }
 }
