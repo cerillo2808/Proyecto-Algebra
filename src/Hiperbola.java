@@ -180,7 +180,7 @@ public class Hiperbola {
     }
 
     public RealMatrix matrizAsociadaFormaCuadratica(double coeficienteXalCuadrado, double coeficienteYalCuadrado, double coeficienteX, double coeficienteY, double constante){
-        double[][] matrizDouble = {{coeficienteXalCuadrado,0,coeficienteX/2},{0,coeficienteYalCuadrado,coeficienteY/2},{coeficienteX/2,coeficienteY/2,constante}};
+        double[][] matrizDouble = {{coeficienteXalCuadrado,0},{0,coeficienteYalCuadrado}};
         RealMatrix matrizAsociada = new Array2DRowRealMatrix(matrizDouble);
         System.out.println("Matriz asociada a la Fórmula Cuadrática: ");
         for (int i = 0; i < matrizAsociada.getRowDimension(); i++) {
